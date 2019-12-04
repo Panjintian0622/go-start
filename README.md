@@ -11,13 +11,13 @@
 生产力 复合VS集成
 docker k8s
 
-应用程序入口
+#应用程序入口
 1必须是main包：package main
 2必须是main方法：func main()
 3文件名不一定是main.go
 
-退出返回值
-与其他语言主要区别
+#退出返回值
+#与其他语言主要区别
 
 GO中main函数不支持任何返回值
 通过os.Exit来返回状态
