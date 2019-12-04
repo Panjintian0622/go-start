@@ -329,32 +329,32 @@ func TestDog(t *testing.T){
    dog:= new(Dog)  
    dog.SpeakTo("chao")  
 }  
-空接口
-口接口可以表示任何类型
-通过断言来将空接口转换为制定类型
-v,ok :=p.(int)//ok=true 时为转换成功
+#空接口
+口接口可以表示任何类型  
+通过断言来将空接口转换为制定类型  
+v,ok :=p.(int)//ok=true 时为转换成功  
 
-GO错误机制
-1没有错误机制
-2error类型实现了error接口 type error interface{Error() string}
-3可以通过errors.New 来快速创建错误机制 errors.New("n must be in the range [0,1]")
-panic 不可恢复的错误，退出前会执行defer指定的内容
-os.Exit 退出时不会掉用defer指定的函数，退出时不输出掉用栈信息
+#GO错误机制  
+1没有错误机制  
+2error类型实现了error接口 type error interface{Error() string}  
+3可以通过errors.New 来快速创建错误机制 errors.New("n must be in the range [0,1]")  
+panic 不可恢复的错误，退出前会执行defer指定的内容  
+os.Exit 退出时不会掉用defer指定的函数，退出时不输出掉用栈信息  
 
-包
-package
-1基本复用模块单元 以首字母大写来表明可被包外代码访问
-2代码的package可以和所在的目录不一致
-3同一目录里的Go代码的package要保持一致
-通过go get 来获取 远程依赖
-go get -u 强制从网络更新远程依赖
-注意代码在Github上的组织形式，以适应go get
-直接以代码路径开始不要有src
+#包  
+package  
+1基本复用模块单元 以首字母大写来表明可被包外代码访问  
+2代码的package可以和所在的目录不一致  
+3同一目录里的Go代码的package要保持一致  
+通过go get 来获取 远程依赖  
+go get -u 强制从网络更新远程依赖  
+注意代码在Github上的组织形式，以适应go get  
+直接以代码路径开始不要有src  
 
-init 方法
-在main被执行前，所有以来的package的init方法都会被执行
-不同包的init函数按照包倒入的依赖关系决定执行顺序
-每个包可以有多个init函数
-包的每个源文件也可以有多个init函数，这点比较特殊
+init 方法  
+在main被执行前，所有以来的package的init方法都会被执行  
+不同包的init函数按照包倒入的依赖关系决定执行顺序  
+每个包可以有多个init函数  
+包的每个源文件也可以有多个init函数，这点比较特殊  
 
 
