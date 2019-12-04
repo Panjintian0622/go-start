@@ -1,30 +1,30 @@
 
-诞生2007于谷歌
+诞生2007于谷歌 
 
-软件开发的新挑战
-1多核硬件架构
-2超大规模分布式计算机集群
-3Web模式导致的前所未有的开发规模和更新速度
+软件开发的新挑战 
+1多核硬件架构 
+2超大规模分布式计算机集群 
+3Web模式导致的前所未有的开发规模和更新速度 
 
-简单
-高效 指针
-生产力 复合VS集成
-docker k8s
+简单 
+高效 指针 
+生产力 复合VS集成 
+docker k8s 
 
-#应用程序入口
-1必须是main包：package main
-2必须是main方法：func main()
-3文件名不一定是main.go
+#应用程序入口 
+1必须是main包：package main 
+2必须是main方法：func main() 
+3文件名不一定是main.go 
 
-#退出返回值
-#与其他语言主要区别
+#退出返回值 
+#与其他语言主要区别 
 
-GO中main函数不支持任何返回值
-通过os.Exit来返回状态
+GO中main函数不支持任何返回值 
+通过os.Exit来返回状态 
 
 
-获取命令行参数
-func main()不接收参数 通过os.Args获取参数 go run hello.go chao
+获取命令行参数 
+func main()不接收参数 通过os.Args获取参数 go run hello.go chao 
 
 编写测试程序
 1源文件以_test结尾：xxx_test.go
@@ -242,11 +242,11 @@ Unicode是字符集，UTF8是unicode的存储实现（转换为字节序列的�
 字符串的转换strconv.Atoi("10") //将字符串转int
 strconv.Itoa(10) //将int转为字符串
 函数
-1可以有多个返回值
-2所有参数都是值传递：slice，map，channel会有传引用的错觉
-3函数可以作为变量的值
-4函数可以作为参数和返回值
-可变参数：
+1可以有多个返回值 
+2所有参数都是值传递：slice，map，channel会有传引用的错觉 
+3函数可以作为变量的值 
+4函数可以作为参数和返回值 
+可变参数： 
 func Sum(ops...int) int{
    ret:=0
    for _,op:=range ops{
@@ -260,8 +260,8 @@ func TestDefer(t *testing.T){
    fmt.Println("Start")
    panic("err")
 }
-面向对象
-封装数据和行为
+面向对象 
+封装数据和行为 
 func TestCreateEmployeeObj(t *testing.T){
    e:=Employee{"0","Bob",20}
    e1:= Employee{Name:"Mike",Age:20}
@@ -275,16 +275,16 @@ func TestCreateEmployeeObj(t *testing.T){
    t.Logf("e is %T",e)//e is encapsulation_test.Employee
    t.Logf("e is %T",e2)//e is *encapsulation_test.Employee
 }
-行为（方法）定义
-//第一种方式在实例对应方法被调用时，实例的成员会进行复制
-func(e Employee) String() string{
-fmt.Printf("Address is %x",unsafe.Pointer(&e.Name))
-   return fmt.Sprintf("ID:%s-Name:%s-Age:%d",e.Id,e.Name,e.Age)
-}
-//通常情况下为了避免内存拷贝我们使用第二种方式
-func(e *Employee) String() string{
-   fmt.Printf("Address is %x",unsafe.Pointer(&e.Name))
-   return fmt.Sprintf("ID:%s/Name:%s/Age:%d",e.Id,e.Name,e.Age)
+行为（方法）定义 
+//第一种方式在实例对应方法被调用时，实例的成员会进行复制 
+func(e Employee) String() string{ 
+fmt.Printf("Address is %x",unsafe.Pointer(&e.Name)) 
+   return fmt.Sprintf("ID:%s-Name:%s-Age:%d",e.Id,e.Name,e.Age) 
+} 
+//通常情况下为了避免内存拷贝我们使用第二种方式 
+func(e *Employee) String() string{ 
+   fmt.Printf("Address is %x",unsafe.Pointer(&e.Name)) 
+   return fmt.Sprintf("ID:%s/Name:%s/Age:%d",e.Id,e.Name,e.Age) 
 }
 接口
 type Programmer interface{
