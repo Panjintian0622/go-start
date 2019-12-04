@@ -89,247 +89,246 @@ j=3：左移 1 位,变为二进制 110, 即 6;
 k=3：左移 2 位,变为二进制 1100, 即 12;  
 l=3：左移 3 位,变为二进制 11000,即 24。  
 
-#数据类型
+#数据类型  
 
-go语言不支持隐式转换
-别名和原有类型也不支持隐式转换
-类型预定义值
-math.MaxInt64
-math.MaxFloat64
-math.MaxUint32
-指针类型
-不支持指针运算
-String类型默认是空字符串，不是nil
+go语言不支持隐式转换  
+别名和原有类型也不支持隐式转换  
+类型预定义值  
+math.MaxInt64  
+math.MaxFloat64  
+math.MaxUint32  
+#指针类型
+不支持指针运算  
+String类型默认是空字符串，不是nil  
 
-运算符
+#运算符  
+
+GO语言没有前置++，--，（++a）  
 
 
-GO语言没有前置++，--，（++a）
-
-
-用==比较数组
-相同维数且含有相同个数元素的数组才可以比较
-每个元素都相同的才相等
-
+用==比较数组  
+相同维数且含有相同个数元素的数组才可以比较  
+每个元素都相同的才相等  
 
 
 
 
-&^按位清零（右边为1，结果为0，右边为0，左边是啥结果就是啥）
-1 &^ 0 ---1
-1 &^ 1 ---0
-0 &^ 1 ---0
-0 &^ 0 ---0
 
-循环
-GO语言仅支持循环关键字for
-for j:=7:j<=9;j++ //不需要括号
-表示while循环
-while 条件循环
-while(n<5)
-n:=0
-for n<5{
-n++
-fmt.Println(n)
-}
+&^按位清零（右边为1，结果为0，右边为0，左边是啥结果就是啥）  
+1 &^ 0 ---1  
+1 &^ 1 ---0  
+0 &^ 1 ---0  
+0 &^ 0 ---0  
 
-无限循环
-while(true)
-n:=0
-for{
-...
-}
+#循环  
+GO语言仅支持循环关键字for  
+for j:=7:j<=9;j++ //不需要括号  
+表示while循环  
+while 条件循环  
+while(n<5)  
+n:=0  
+for n<5{  
+n++  
+fmt.Println(n)  
+}  
 
-条件语句
-if没有括号
-condition表达式结果必须为布尔值
-支持变量赋值
-if var condition; condition{}
+#无限循环  
+while(true)  
+n:=0  
+for{  
+...  
+}  
 
-switch
-1调教表达式不限制为常数或者整数；
-2单个case中，可以出现多个结果选项，使用逗号分隔；
-3与C语言等规定相反，Go语言不需要用break来明确退出一个case；
-4可以不设定switch之后的条件表达式，在此种情况下，整个switch结构与多个if...else相同
+#条件语句  
+if没有括号  
+condition表达式结果必须为布尔值  
+支持变量赋值  
+if var condition; condition{}  
 
-数组的声明
-var a [3] int //声明并初始化默认为零值
-a[0]=1
-b:=[3]int{1,2,3}//声明同时初始化
-c:=[2][2]int{{1,2},{3,4}}//多维数组初始化
-遍历方式for idx/*索引*/,e/*元素*/:= range arr3 for _,e:= range arr3
-数组截取
-a[开始索引(包含),结束索引(不包含)]
-a :=[...]int{1,2,3,4,5}
-a[1,2]//2
-a[1,3]//2,3
-a[1,lem(a)]//2,3,4,5
-a[1:]//2,3,4,5
-a[:3]//1,2,3
+#switch  
+1调教表达式不限制为常数或者整数；  
+2单个case中，可以出现多个结果选项，使用逗号分隔；  
+3与C语言等规定相反，Go语言不需要用break来明确退出一个case；  
+4可以不设定switch之后的条件表达式，在此种情况下，整个switch结构与多个if...else相同  
 
-切片
+#数组的声明  
+var a [3] int //声明并初始化默认为零值  
+a[0]=1  
+b:=[3]int{1,2,3}//声明同时初始化  
+c:=[2][2]int{{1,2},{3,4}}//多维数组初始化  
+遍历方式for idx/*索引*/,e/*元素*/:= range arr3 for _,e:= range arr3  
+#数组截取  
+a[开始索引(包含),结束索引(不包含)]  
+a :=[...]int{1,2,3,4,5}  
+a[1,2]//2  
+a[1,3]//2,3  
+a[1,lem(a)]//2,3,4,5  
+a[1:]//2,3,4,5  
+a[:3]//1,2,3  
 
-切片初始化三种方式
-var s0 []int
-s0 = append(s0,1)
-1 s:=[]int{}
-2 s1 :=[]int{1,2,3}
-3 s2:=make([]int ,2,4)
-/*[] type,len,cap 其中len个元素会被初始化为默认零值，未初始化元素不可以访问*/
-切片共享存储结构
+#切片
+
+切片初始化三种方式  
+var s0 []int  
+s0 = append(s0,1)  
+1 s:=[]int{}  
+2 s1 :=[]int{1,2,3}  
+3 s2:=make([]int ,2,4)  
+/*[] type,len,cap 其中len个元素会被初始化为默认零值，未初始化元素不可以访问*/  
+切片共享存储结构  
  
 
 
-数组VS切片
-1容量是否可以伸缩
-2是否可以进行比较
+#数组VS切片  
+1容量是否可以伸缩  
+2是否可以进行比较  
 
-Map
-Map声明
-m:=map[string]int{"one":1,"two":2}
-m1:=map[string]int{}
-m1["one"] = 1
-m2:=make(map[string]int,10/*容量*/)
-//不初始化长度，不能初始化零值
-map key不存在时会赋值为0
-在访问的Key不存在时，仍会返回零值，不能通过返回nil来判断元素是否存在
-if v,ok:=m1[3];ok{//返回值，值是否存在
-    t.Logf("key 3's valur is %d",v)
-  }else{
-    t.Log("key 3 is not existing.")
-  }
-map的遍历
-m1:=map[int]int{1:1,2:4,3:9}
-  for k,v:=range m1{
-    t.Log(k,v)
-  }
-Map与工厂模式
-map的value可以是一个方法
-与GO的Dock type接口方式一起，可以方便的实现单一方法对象的工厂模式
-  m:=map[int]func(op int)int{}
-  m[1] =func (op int)int{return op}
-  m[2] =func (op int)int{return op*op}
-  m[3] =func (op int)int{return op*op*op}
-  t.Log(m[1](2),m[2](2),m[3](2))//2 4 8
-实现set map[type]bool
-1元素的唯一性
-2基本操作
- 添加元素
- 判断元素是否存在
- 删除元素
- 元素个数
-mySet:=map[int]bool{}
-  mySet[1] = true
-  n:=1
-  if mySet[n]{
-    t.Logf("%d is existing",n)
-  }else{
-      t.Logf("%d is not existing",n)
-  }
-  mySet[3]=true
-  t.Log(len(mySet))
-  delete(mySet,1)
+#Map  
+Map声明  
+m:=map[string]int{"one":1,"two":2}  
+m1:=map[string]int{}  
+m1["one"] = 1  
+m2:=make(map[string]int,10/*容量*/)  
+//不初始化长度，不能初始化零值  
+map key不存在时会赋值为0  
+在访问的Key不存在时，仍会返回零值，不能通过返回nil来判断元素是否存在  
+if v,ok:=m1[3];ok{//返回值，值是否存在  
+    t.Logf("key 3's valur is %d",v)  
+  }else{  
+    t.Log("key 3 is not existing.")  
+  }  
+#map的遍历  
+m1:=map[int]int{1:1,2:4,3:9}  
+  for k,v:=range m1{  
+    t.Log(k,v)  
+  }  
+#Map与工厂模式  
+map的value可以是一个方法  
+与GO的Dock type接口方式一起，可以方便的实现单一方法对象的工厂模式  
+  m:=map[int]func(op int)int{}  
+  m[1] =func (op int)int{return op}  
+  m[2] =func (op int)int{return op*op}  
+  m[3] =func (op int)int{return op*op*op}  
+  t.Log(m[1](2),m[2](2),m[3](2))//2 4 8  
+#实现set map[type]bool  
+1元素的唯一性  
+2基本操作  
+ 添加元素  
+ 判断元素是否存在  
+ 删除元素  
+ 元素个数  
+mySet:=map[int]bool{}  
+  mySet[1] = true  
+  n:=1  
+  if mySet[n]{  
+    t.Logf("%d is existing",n)  
+  }else{  
+      t.Logf("%d is not existing",n)  
+  }  
+  mySet[3]=true  
+  t.Log(len(mySet))  
+  delete(mySet,1)  
 
-字符串
-1string是数据类型，不是饮用或指针类型
-2string是只读的byte slice，len函数可以他所包含的byte数
-3string的byte数组可以存放任何数据
+#字符串  
+1string是数据类型，不是饮用或指针类型  
+2string是只读的byte slice，len函数可以他所包含的byte数  
+3string的byte数组可以存放任何数据  
 
-Unicode UTF8
-Unicode是字符集，UTF8是unicode的存储实现（转换为字节序列的规则）
+#Unicode UTF8  
+Unicode是字符集，UTF8是unicode的存储实现（转换为字节序列的规则）  
 
 
-字符串的转换strconv.Atoi("10") //将字符串转int
-strconv.Itoa(10) //将int转为字符串
-函数
-1可以有多个返回值 
-2所有参数都是值传递：slice，map，channel会有传引用的错觉 
-3函数可以作为变量的值 
-4函数可以作为参数和返回值 
+字符串的转换strconv.Atoi("10") //将字符串转int  
+strconv.Itoa(10) //将int转为字符串  
+#函数  
+1可以有多个返回值   
+2所有参数都是值传递：slice，map，channel会有传引用的错觉  
+3函数可以作为变量的值  
+4函数可以作为参数和返回值  
 可变参数： 
-func Sum(ops...int) int{
-   ret:=0
-   for _,op:=range ops{
-      ret+=op
-   }
-   return ret
-}
-defer函数 类似于finally
-func TestDefer(t *testing.T){
-   defer clear()
-   fmt.Println("Start")
-   panic("err")
-}
-面向对象 
-封装数据和行为 
-func TestCreateEmployeeObj(t *testing.T){
-   e:=Employee{"0","Bob",20}
-   e1:= Employee{Name:"Mike",Age:20}
-   e2:=new(Employee)//返回指针
-   e2.Id="2"
-   e2.Age=22
-   e2.Name="Rose"
-   t.Log(e)//{0 Bob 20}
-   t.Log(e1)//{ Mike 20}
-   t.Log(e2)//&{2 Rose 22}
-   t.Logf("e is %T",e)//e is encapsulation_test.Employee
-   t.Logf("e is %T",e2)//e is *encapsulation_test.Employee
-}
-行为（方法）定义 
-//第一种方式在实例对应方法被调用时，实例的成员会进行复制 
-func(e Employee) String() string{ 
-fmt.Printf("Address is %x",unsafe.Pointer(&e.Name)) 
-   return fmt.Sprintf("ID:%s-Name:%s-Age:%d",e.Id,e.Name,e.Age) 
-} 
-//通常情况下为了避免内存拷贝我们使用第二种方式 
-func(e *Employee) String() string{ 
-   fmt.Printf("Address is %x",unsafe.Pointer(&e.Name)) 
-   return fmt.Sprintf("ID:%s/Name:%s/Age:%d",e.Id,e.Name,e.Age) 
-}
-接口
-type Programmer interface{
-   WriteHelloWorld() string
-}
-type GoProgrammer struct {
+func Sum(ops...int) int{  
+   ret:=0  
+   for _,op:=range ops{  
+      ret+=op  
+   }  
+   return ret  
+}  
+defer函数 类似于finally  
+func TestDefer(t *testing.T){  
+   defer clear()  
+   fmt.Println("Start")  
+   panic("err")  
+}  
+#面向对象  
+封装数据和行为  
+func TestCreateEmployeeObj(t *testing.T){  
+   e:=Employee{"0","Bob",20}  
+   e1:= Employee{Name:"Mike",Age:20}  
+   e2:=new(Employee)//返回指针  
+   e2.Id="2"  
+   e2.Age=22  
+   e2.Name="Rose"  
+   t.Log(e)//{0 Bob 20}  
+   t.Log(e1)//{ Mike 20}  
+   t.Log(e2)//&{2 Rose 22}  
+   t.Logf("e is %T",e)//e is encapsulation_test.Employee  
+   t.Logf("e is %T",e2)//e is *encapsulation_test.Employee  
+}  
+行为（方法）定义  
+//第一种方式在实例对应方法被调用时，实例的成员会进行复制  
+func(e Employee) String() string{  
+fmt.Printf("Address is %x",unsafe.Pointer(&e.Name))  
+   return fmt.Sprintf("ID:%s-Name:%s-Age:%d",e.Id,e.Name,e.Age)  
+}  
+//通常情况下为了避免内存拷贝我们使用第二种方式  
+func(e *Employee) String() string{  
+   fmt.Printf("Address is %x",unsafe.Pointer(&e.Name))  
+   return fmt.Sprintf("ID:%s/Name:%s/Age:%d",e.Id,e.Name,e.Age)  
+}  
+#接口  
+type Programmer interface{  
+   WriteHelloWorld() string  
+}  
+type GoProgrammer struct {  
+  
+}  
+func (g *GoProgrammer) WriteHelloWorld() string{  
+   return "fmt.Println(\"Hello World\")"  
+}  
+与其他编程语言的区别  
+1接口是非入侵性，实现不依赖于接口定义  
+2所以接口的定义可以包含在接口使用者包内  
+  
+#接口变量  
 
-}
-func (g *GoProgrammer) WriteHelloWorld() string{
-   return "fmt.Println(\"Hello World\")"
-}
-与其他编程语言的区别
-1接口是非入侵性，实现不依赖于接口定义
-2所以接口的定义可以包含在接口使用者包内
 
-接口变量
+#自定义类型
+type IntVonv  func(op int) int  
+扩展与复用  
+type Pet struct {  
+}  
 
-
-自定义类型
-type IntVonv  func(op int) int
-扩展与复用
-type Pet struct {
-}
-
-func (p *Pet) Speak() {
-   fmt.Print("...")
-}
-func (p *Pet) SpeakTo(host string){
-   p.Speak()
-   fmt.Println(" ",host)
-}
-type Dog struct {
-   Pet
-}
-func (d *Dog) Speak(){
-   fmt.Println("wang")
-}
-//func (d *Dog) SpeakTo(host string){
-// d.Speak()
-// fmt.Println(" ",host)
-//}
-func TestDog(t *testing.T){
-   dog:= new(Dog)
-   dog.SpeakTo("chao")
-}
+func (p *Pet) Speak() {  
+   fmt.Print("...")   
+}  
+func (p *Pet) SpeakTo(host string){  
+   p.Speak()  
+   fmt.Println(" ",host)  
+}  
+type Dog struct {  
+   Pet  
+}  
+func (d *Dog) Speak(){  
+   fmt.Println("wang")  
+}  
+//func (d *Dog) SpeakTo(host string){  
+// d.Speak()  
+// fmt.Println(" ",host)  
+//}  
+func TestDog(t *testing.T){  
+   dog:= new(Dog)  
+   dog.SpeakTo("chao")  
+}  
 空接口
 口接口可以表示任何类型
 通过断言来将空接口转换为制定类型
