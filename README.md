@@ -6,90 +6,90 @@
 2超大规模分布式计算机集群  
 3Web模式导致的前所未有的开发规模和更新速度  
 
-简单 
-高效 指针 
-生产力 复合VS集成 
-docker k8s 
+简单  
+高效 指针  
+生产力 复合VS集成  
+docker k8s  
 
-#应用程序入口 
-1必须是main包：package main 
-2必须是main方法：func main() 
-3文件名不一定是main.go 
+#应用程序入口  
+1必须是main包：package main  
+2必须是main方法：func main()  
+3文件名不一定是main.go  
 
-#退出返回值 
-#与其他语言主要区别 
+#退出返回值  
+#与其他语言主要区别  
 
-GO中main函数不支持任何返回值 
-通过os.Exit来返回状态 
+GO中main函数不支持任何返回值  
+通过os.Exit来返回状态  
 
 
-获取命令行参数 
-func main()不接收参数 通过os.Args获取参数 go run hello.go chao 
+获取命令行参数  
+func main()不接收参数 通过os.Args获取参数 go run hello.go chao  
 
-编写测试程序
-1源文件以_test结尾：xxx_test.go
-2测试方法名以Test开头：func TestXXX(t *testing.T){...}
-3必须引用testing包
+#编写测试程序  
+1源文件以_test结尾：xxx_test.go  
+2测试方法名以Test开头：func TestXXX(t *testing.T){...}  
+3必须引用testing包  
 使用go test 运行
 
-变量
-1 var v_name v_type  var a int
-2 var v_name = value var d =true
-3 v_name := value 注意 := 左侧如果没有声明新的变量，就产生编译错误
-var intVal int 
-intVal :=1 // 这时候会产生编译错误
-intVal,intVal1 := 1,2 // 此时不会产生编译错误，因为有声明新的变量，因为 := 是一个声明语句
-多变量声明
-var (
-    vname1 v_type1
-    vname2 v_type2
-)
-var (  // 这种因式分解关键字的写法一般用于声明全局变量
-    a int
-    b bool
-)
-变量赋值
-赋值可以自动进行类型推断
-在一个赋值语句中可以对多个变量进行同时赋值
-值类型和引用类型
-a=b b拷贝a的内存地址，a内容发生变化，b也跟着变
-常量定义
-显式类型定义 const b string = "abc"
-隐式类型定义： const b = "abc"
-const a, b, c = 1, false, "str" //多重赋值
-iota 使用时为0，每次➕1
-const (
-    a = iota
-    b
-    c
-)//a=0,b=1,c=2
- const (
-            a = iota   //0
-            b          //1
-            c          //2
-            d = "ha"   //独立值，iota += 1
-            e          //"ha"   iota += 1
-            f = 100    //iota +=1
-            g          //100  iota +=1
-            h = iota   //7,恢复计数
-            i          //8
-    )
-    fmt.Println(a,b,c,d,e,f,g,h,i)
-//0 1 2 ha ha 100 100 7 8
-const (
-    i=1<<iota
-    j=3<<iota
-    k
-    l
-)
-iota 表示从 0 开始自动加 1，所以 i=1<<0, j=3<<1（<< 表示左移的意思），即：i=1, j=6，这没问题，关键在 k 和 l，从输出结果看 k=3<<2，l=3<<3。
-简单表述:
-i=1：左移 0 位,不变仍为 1;
-j=3：左移 1 位,变为二进制 110, 即 6;
-k=3：左移 2 位,变为二进制 1100, 即 12;
-l=3：左移 3 位,变为二进制 11000,即 24。
+#变量
+1 var v_name v_type  var a int  
+2 var v_name = value var d =true  
+3 v_name := value 注意 := 左侧如果没有声明新的变量，就产生编译错误  
+var intVal int   
+intVal :=1 // 这时候会产生编译错误  
+intVal,intVal1 := 1,2 // 此时不会产生编译错误，因为有声明新的变量，因为 := 是一个声明语句  
+#多变量声明
+var (  
+    vname1 v_type1  
+    vname2 v_type2  
+)  
+var (  // 这种因式分解关键字的写法一般用于声明全局变量  
+    a int  
+    b bool  
+)  
+#变量赋值
+赋值可以自动进行类型推断  
+在一个赋值语句中可以对多个变量进行同时赋值  
+值类型和引用类型  
+a=b b拷贝a的内存地址，a内容发生变化，b也跟着变  
+#常量定义
+显式类型定义 const b string = "abc"  
+隐式类型定义： const b = "abc"  
+const a, b, c = 1, false, "str" //多重赋值  
+iota 使用时为0，每次➕1  
+const (  
+    a = iota  
+    b  
+    c  
+)//a=0,b=1,c=2  
+ const (  
+            a = iota   //0  
+            b          //1  
+            c          //2  
+            d = "ha"   //独立值，iota += 1  
+            e          //"ha"   iota += 1  
+            f = 100    //iota +=1  
+            g          //100  iota +=1  
+            h = iota   //7,恢复计数  
+            i          //8  
+    )  
+    fmt.Println(a,b,c,d,e,f,g,h,i)  
+//0 1 2 ha ha 100 100 7 8  
+const (  
+    i=1<<iota  
+    j=3<<iota  
+    k  
+    l  
+)  
+iota 表示从 0 开始自动加 1，所以 i=1<<0, j=3<<1（<< 表示左移的意思），即：i=1, j=6，这没问题，关键在 k 和 l，从输出结果看 k=3<<2，l=3<<3。  
+简单表述:  
+i=1：左移 0 位,不变仍为 1;  
+j=3：左移 1 位,变为二进制 110, 即 6;  
+k=3：左移 2 位,变为二进制 1100, 即 12;  
+l=3：左移 3 位,变为二进制 11000,即 24。  
 
-数据类型
+#数据类型
 
 go语言不支持隐式转换
 别名和原有类型也不支持隐式转换
